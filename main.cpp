@@ -1,48 +1,20 @@
-#include <stdio.h>
-#include <string>
-#include <iostream>
-#include <chrono>
-#include <thread>  // スリープを使用するためにインクルード
+#include<stdio.h>
+#include"Template.h"
 
 int main() {
+	/*クラス名から型を考えて<>の中を定義*/
+	TemplateClass<int, float> intFloatTemplate(10, 50.0f);
+	TemplateClass<int, double> intDoubleTemplate(80, 13.0);
+	TemplateClass<float, int> floatIntTemplate(2.0f, 9);
+	TemplateClass<float, double> floatDoubleTemplate(11.0f, 3.5);
+	TemplateClass<double, int> doubleIntTemplate(666.0, 333);
+	TemplateClass<double, float> doubleFloatTemplate(435.8, 563.5f);
 
-    printf("100000文字のデータのコピーと移動の処理速度を比較\n");
-
-    std::string a(1000000, 'a');
-
-    std::string aCopy;
-
-    std::string aMove;
-
-
-    // 開始時刻を取得
-    auto startCopy = std::chrono::high_resolution_clock::now();
-
-    aCopy = a;
-
-    // 終了時刻を取得
-    auto endCopy = std::chrono::high_resolution_clock::now();
-
-    // 経過時間をマイクロ秒単位で計算
-    auto durationCopy = std::chrono::duration_cast<std::chrono::microseconds>(endCopy - startCopy);
-
-    // 結果を表示
-    std::cout << "コピー時間: " << durationCopy.count() << " μs\n";
-
-    ///移動
-    // 開始時刻を取得
-    auto startMove = std::chrono::high_resolution_clock::now();
-
-    aMove = std::move(a);
-
-    // 終了時刻を取得
-    auto endMove = std::chrono::high_resolution_clock::now();
-
-    // 経過時間をマイクロ秒単位で計算
-    auto durationMove = std::chrono::duration_cast<std::chrono::microseconds>(endMove - startMove);
-
-    // 結果を表示
-    std::cout << "移動時間: " << durationMove.count() << " μs\n";
-
-    return 0;
+	std::cout << "int(10)と float(50.0f) を比べた時に小さい数を出す：" << intFloatTemplate.Min() << std::endl;
+	std::cout << "int(80)と double(13.0) を比べた時に小さい数を出す：" << intDoubleTemplate.Min() << std::endl;
+	std::cout << "float(2.0f)と int(9) を比べた時に小さい数を出す：" << floatIntTemplate.Min() << std::endl;
+	std::cout << "float(11.0f)と double(3.5) を比べた時に小さい数を出す：" << floatDoubleTemplate.Min() << std::endl;
+	std::cout << "double(666.0)と int(333) を比べた時に小さい数を出す：" << doubleIntTemplate.Min() << std::endl;
+	std::cout << "double(435.8)と float(563.5) を比べた時に小さい数を出す：" << doubleFloatTemplate.Min() << std::endl;
+	return 0;
 }
