@@ -1,0 +1,46 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[diff]
+	tool = vsdiffmerge
+[difftool]
+	prompt = true
+[difftool "vsdiffmerge"]
+	cmd = \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+	keepBackup = false
+[merge]
+	tool = vsdiffmerge
+[mergetool]
+	prompt = true
+[mergetool "vsdiffmerge"]
+	cmd = \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\" //m
+	keepBackup = false
+	trustExitCode = true
+[remote "origin"]
+	url = https://github.com/furutaayumu/PG3.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[branch "05_02"]
+	remote = origin
+	merge = refs/heads/05_02
+[branch "0203"]
+	remote = origin
+	merge = refs/heads/0203
+[branch "0204"]
+	remote = origin
+	merge = refs/heads/0204
+[branch "0301"]
+	remote = origin
+	merge = refs/heads/0301
+[branch "0602"]
+	remote = origin
+	merge = refs/heads/0602
+[branch "0701"]
+	remote = origin
+	merge = refs/heads/0701
